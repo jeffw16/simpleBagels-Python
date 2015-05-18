@@ -1,44 +1,34 @@
-import java.util.*;
+class Bagels:
+  bagel = ""
+  result = ""
+  guess = ""
+  def __init__ ( bagelin ):
+    bagel = bagelin
+  def checkCombo ( guessin ):
+    guess = guessin
+    inresult = ""
+    chunks = []
+    for i in xarray ( 0, len(bagel) ):
+      chunks.append(bagel[i:i+1])
+    for j in xarray ( 0, len(bagel) ):
+      if guess[j:j+1] == chunks[j]:
+        inresult += bagel[j:j+1]
+      else:
+        within = False
+        k = 0
+        while ( not within and k < len(bagel) ):
+          if guess[j:j+1] == chunks[k]:
+            inresult += "!"
+            within = True
+          k = k + 1
+      if not within:
+        inresult += "?"
+    result = inresult
+    if guess == result:
+      return True
+    else:
+      return False
 
-class Bagels {
-  String bagel = "";
-  String result = "";
-  String guess = "";
-  public Bagels ( String bagel ) {
-    this.bagel = bagel;
-  }
-  public boolean checkCombo ( String guess ) {
-    this.guess = guess;
-    String result = "";
-    String[] chunks = new String[bagel.length()];
-    for ( int i = 0; i < chunks.length; i++ ) {
-      chunks[i] = bagel.substring( i, i+1 );
-    }
-    for ( int j = 0; j < bagel.length(); j++ ) {
-      if ( guess.substring( j, j+1 ).equals( chunks[j] ) ) {
-        result += bagel.substring( j, j+1 );
-      } else {
-        boolean within = false;
-        int k = 0;
-        while ( !within && k < chunks.length ) {
-          if ( guess.substring( j, j+1 ).equals( chunks[k] )) {
-            result += "!";
-            within = true;
-          }
-          k++;
-        }
-        if ( !within ) {
-          result += "?";
-        }
-      }
-    }
-    this.result = result;
-    if ( guess.equals ( this.result ) ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
   public String toString () {
     String ret = "";
     if ( this.guess != this.result ) {
