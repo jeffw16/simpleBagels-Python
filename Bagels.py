@@ -28,21 +28,15 @@ class Bagels:
       return True
     else:
       return False
-
-  public String toString () {
-    String ret = "";
-    if ( this.guess != this.result ) {
-      for ( int i = 0; i < this.result.length(); i++ ) {
-        if ( this.result.charAt(i) == this.guess.charAt(i) ) {
-          ret += "[Fermi]";
-        } else if ( this.result.charAt(i) == '!' ) {
-          ret += "[Pico]";
-        }
-      }
-    }
-    if ( ret == "" ) {
-      ret += "[Bagels]";
-    }
-    return ret;
-  }
-}
+  
+  def __str__ ():
+    ret = ""
+    if guess == result:
+      for x in xrange ( 0, len(result) ):
+        if result[i] == guess[i]:
+          ret += "[Fermi]"
+        elif result[i] == "!":
+          ret += "[Pico]"
+    if ret == "":
+      ret += "[Bagels]"
+    return ret
