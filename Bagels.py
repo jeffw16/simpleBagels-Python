@@ -8,9 +8,9 @@ class Bagels:
     guess = guessin
     inresult = ""
     chunks = []
-    for i in xarray ( 0, len(bagel) ):
+    for i in xrange ( 0, len(bagel) ):
       chunks.append(bagel[i:i+1])
-    for j in xarray ( 0, len(bagel) ):
+    for j in xrange ( 0, len(bagel) ):
       if guess[j:j+1] == chunks[j]:
         inresult += bagel[j:j+1]
       else:
